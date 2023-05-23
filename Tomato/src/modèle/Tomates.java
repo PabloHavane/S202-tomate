@@ -84,15 +84,6 @@ public class Tomates {
 		return tomatesCouleur;
 	}
 	
-	public List<Tomate> tomatesDeTypeDeCouleur(TypeTomate typeTomate, Couleur couleur) {
-        List<Tomate> tomatesDeTypeDeCouleur = new LinkedList<>();
-        for (Tomate tomate : this.lesTomates) {
-            if (tomate.getTypeGraine() == typeTomate && tomate.getCouleur() == couleur) {
-                tomatesDeTypeDeCouleur.add(tomate);
-            }
-        }
-        return tomatesDeTypeDeCouleur;
-    }
 	public List<Tomate> tomatesDetypeDeCouleur(TypeTomate typeTomate, Couleur couleur) {
 
 		List<Tomate> tomatesDeTypeDeCouleur = new LinkedList<>();
