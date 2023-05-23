@@ -59,7 +59,7 @@ public class Tomates {
 	}
 
 	private List<Tomate> tomatesDeTypeAvecListe(TypeTomate typeTomate, List<Tomate> lesTomates) {
-		for();
+		return null;
 	}
 
 	public List<Tomate> tomatesDeCouleur(Couleur couleur) {
