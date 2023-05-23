@@ -33,6 +33,7 @@ public class Tomates {
 					+ "Plantez du basilic entre vos pieds de tomates, ils s’entraident l’un l’autre…");
 
 	private List<Tomate> lesTomates;
+	
 	public Tomates() {
 		this.lesTomates = new LinkedList<Tomate>();
 	}
@@ -59,7 +60,13 @@ public class Tomates {
 	}
 
 	private List<Tomate> tomatesDeTypeAvecListe(TypeTomate typeTomate, List<Tomate> lesTomates) {
-		for();
+		List<Tomate> tomatesType = new LinkedList<Tomate>();
+		for (Tomate tomate : lesTomates) {
+			if (tomate.getTypeGraine().equals(typeTomate)) {
+				tomatesType.add(tomate);
+			}
+		}
+		return tomatesType;
 	}
 
 	public List<Tomate> tomatesDeCouleur(Couleur couleur) {
@@ -67,7 +74,14 @@ public class Tomates {
 	}
 
 	private List<Tomate> tomatesDeCouleurAvecListe(Couleur couleur, List<Tomate> lesTomates) { 
-		return null;
+
+		List<Tomate> tomatesCouleur = new LinkedList<Tomate>();
+		for (Tomate tomate : lesTomates) {
+			if (tomate.getCouleur().equals(couleur)) {
+				tomatesCouleur.add(tomate);
+			}
+		}
+		return tomatesCouleur;
 	}
 	
 	public List<Tomate> tomatesDeTypeDeCouleur(TypeTomate typeTomate, Couleur couleur) {
@@ -79,6 +93,16 @@ public class Tomates {
         }
         return tomatesDeTypeDeCouleur;
     }
+	public List<Tomate> tomatesDetypeDeCouleur(TypeTomate typeTomate, Couleur couleur) {
+
+		List<Tomate> tomatesDeTypeDeCouleur = new LinkedList<>();
+        for (Tomate tomate : this.lesTomates) {
+            if (tomate.getTypeGraine() == typeTomate && tomate.getCouleur() == couleur) {
+                tomatesDeTypeDeCouleur.add(tomate);
+            }
+        }
+        return tomatesDeTypeDeCouleur;
+	}
 	
 	public Tomate getTomate(String designation) {
 		for (Tomate graine : this.lesTomates) {
