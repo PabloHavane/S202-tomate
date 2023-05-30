@@ -51,27 +51,30 @@ public class PagePlusDinformation extends JFrame {
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.WEST);
-		panel.setLayout(new BorderLayout(0, 0));
+		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		panel.add(lblNewLabel, BorderLayout.NORTH);
-		
-		JTextArea textArea = new JTextArea();
-		panel.add(textArea, BorderLayout.CENTER);
+		panel.add(lblNewLabel);
 		
 		JPanel panel_1 = new JPanel();
-		panel.add(panel_1, BorderLayout.SOUTH);
-		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel.add(panel_1);
+		panel_1.setLayout(new BorderLayout(0, 0));
+		
+		JTextArea textArea = new JTextArea();
+		panel_1.add(textArea, BorderLayout.NORTH);
 		
 		JComboBox comboBox = new JComboBox();
-		panel_1.add(comboBox);
+		panel_1.add(comboBox, BorderLayout.WEST);
 		
 		textField = new JTextField();
-		panel_1.add(textField);
+		panel_1.add(textField, BorderLayout.CENTER);
 		textField.setColumns(10);
 		
 		JComboBox comboBox_1 = new JComboBox();
-		panel_1.add(comboBox_1);
+		panel_1.add(comboBox_1, BorderLayout.EAST);
+		
+		JButton button = new JButton("New button");
+		panel_1.add(button, BorderLayout.SOUTH);
 		
 		JLabel lblNewLabel_1 = new JLabel("New label");
 		contentPane.add(lblNewLabel_1, BorderLayout.EAST);
