@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 
 public class Page_Principal extends JFrame {
 	private JPanel contentPane;
-	private JTextField txtJdsssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssdsdsdsdsdsdsdskdjksjdskjdskdjskdjksdjskdjskdjskdjskdjskdjskdjskdskdjskdjskjdksjsk;
+	private JTextField txtJ;
 
 	/**
 	 * Launch the application.
@@ -45,9 +45,6 @@ public class Page_Principal extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
-	
-		
-		import javax.swing.JLabel;
 
 		// ...
 
