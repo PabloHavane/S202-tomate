@@ -57,14 +57,14 @@ public class Panier extends JFrame {
 		panel.add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnNewButton = new JButton("Valider la commande");
-		panel_1.add(btnNewButton, BorderLayout.WEST);
+		JButton ButtonValide = new JButton("Valider la commande");
+		panel_1.add(ButtonValide, BorderLayout.WEST);
 		
-		JButton btnNewButton = new JButton("Supprimer le panier");
-		panel_1.add(btnNewButton, BorderLayout.CENTER);
+		JButton ButtonSuppr = new JButton("Supprimer le panier");
+		panel_1.add(ButtonSuppr, BorderLayout.CENTER);
 		
-		JButton btnNewButton = new JButton("Retour à l'accueil");
-		panel_1.add(btnNewButton, BorderLayout.EAST);
+		JButton ButtonAccueil = new JButton("Retour à l'accueil");
+		panel_1.add(ButtonAccueil, BorderLayout.EAST);
 		
 		table = new JTable();
 		panel.add(table, BorderLayout.CENTER);
