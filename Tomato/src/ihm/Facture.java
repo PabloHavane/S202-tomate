@@ -15,7 +15,6 @@ import javax.swing.JButton;
 public class Facture extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtMerciDeVotre;
 	private JTextField textField;
 
 	/**
@@ -58,10 +57,8 @@ public class Facture extends JFrame {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		panel.add(lblNewLabel_1, BorderLayout.WEST);
 		
-		txtMerciDeVotre = new JTextField();
-		txtMerciDeVotre.setText("Merci de votre visite !");
-		panel.add(txtMerciDeVotre, BorderLayout.SOUTH);
-		txtMerciDeVotre.setColumns(10);
+		JLabel lblNewLabel_2 = new JLabel("Merci de votre visite !");
+		panel.add(lblNewLabel_2, BorderLayout.SOUTH);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, BorderLayout.CENTER);
