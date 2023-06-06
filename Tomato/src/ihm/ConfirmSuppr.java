@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.BorderLayout;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class ConfirmSuppr extends JFrame {
 
@@ -31,11 +35,25 @@ public class ConfirmSuppr extends JFrame {
 	 */
 	public ConfirmSuppr() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 397, 181);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		JLabel lblNewLabel = new JLabel("Voulez-vous vraiment supprimer le panier ?");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lblNewLabel, BorderLayout.CENTER);
+		
+		JPanel panel = new JPanel();
+		contentPane.add(panel, BorderLayout.SOUTH);
+		
+		JButton btnNewButton = new JButton("Oui");
+		panel.add(btnNewButton);
+		
+		JButton btnNon = new JButton("Non");
+		panel.add(btnNon);
 	}
 
 }
