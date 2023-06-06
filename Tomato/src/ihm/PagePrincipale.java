@@ -82,23 +82,23 @@ public class PagePrincipale extends JFrame {
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.SOUTH);
 		panel_3.setLayout(new BorderLayout(0, 0));
-
+		
 		JPanel panel_3_1 = new JPanel();
 		panel_3.add(panel_3_1, BorderLayout.NORTH);
 		panel_3_1.setLayout(new GridLayout(2, 2, 0, 0));
-
+		
 		JComboBox comboBox = new JComboBox();
 		panel_3_1.add(comboBox);
-
+		
 		JComboBox comboBox_1 = new JComboBox();
 		panel_3_1.add(comboBox_1);
-
+		
 		JButton btnNewButton = new JButton("New button");
 		panel_3_1.add(btnNewButton);
-
+		
 		JButton button = new JButton("New button");
 		panel_3_1.add(button);
-
+		
 		JButton btnNewButton_2 = new JButton("New button");
 		panel_3.add(btnNewButton_2, BorderLayout.SOUTH);
 
