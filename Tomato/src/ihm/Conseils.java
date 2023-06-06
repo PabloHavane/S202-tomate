@@ -12,10 +12,12 @@ import javax.swing.JTextField;
 import javax.swing.JScrollPane;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.Component;
 
 public class Conseils extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -76,6 +78,11 @@ public class Conseils extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel.add(scrollPane, BorderLayout.CENTER);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		scrollPane.setViewportView(textField);
+		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("New button");
 		contentPane.add(btnNewButton, BorderLayout.SOUTH);
