@@ -4,19 +4,29 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+
+
+import modèle.Tomates;
+import modèle.GenerationArticles;
 
 public class PagePrincipale extends JFrame {
 
 	private JPanel contentPane;
+	private JTable tableTomates;
+	private DefaultTableModel modeleTable;
+	private Tomates tomates= GenerationArticles.générationDeBaseDesTomates();
 
 	/**
 	 * Launch the application.
@@ -78,32 +88,16 @@ public class PagePrincipale extends JFrame {
 		lblChoixTomate.setEnabled(false);
 		lblChoixTomate.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_2.add(lblChoixTomate);
-
-		JList listTomates = new JList();
-		panel_1.add(listTomates, BorderLayout.CENTER);
-
-		JPanel panel_3 = new JPanel();
-		panel_1.add(panel_3, BorderLayout.SOUTH);
-		panel_3.setLayout(new BorderLayout(0, 0));
 		
-		JPanel panel_3_1 = new JPanel();
-		panel_3.add(panel_3_1, BorderLayout.NORTH);
-		panel_3_1.setLayout(new GridLayout(2, 2, 0, 0));
+		JScrollPane scrollPane = new JScrollPane();
+		panel_1.add(scrollPane, BorderLayout.CENTER);
 		
-		JComboBox comboBoxType = new JComboBox();
-		panel_3_1.add(comboBoxType);
-		
-		JComboBox comboBoxCouleur = new JComboBox();
-		panel_3_1.add(comboBoxCouleur);
-		
-		JButton btnPlusInfo = new JButton("Plus d'information sur cette tomate");
-		panel_3_1.add(btnPlusInfo);
-		
-		JButton btnAjouterPanier = new JButton("Ajouter au panier");
-		panel_3_1.add(btnAjouterPanier);
-		
-		JButton btnConseils = new JButton("Conseils de culture");
-		panel_3.add(btnConseils, BorderLayout.SOUTH);
+		modeleTable = new DefaultTableModel(
+		new Object[] { "Désignation", "Couleur", "Type de graine", "Prix (€)", "Nombre de graines" }, 0);
+		tableTomates = new JTable(modeleTable);
+		tableTomates.setModel(modeleTable);
+		tableTomates.setEnabled(false);
+		scrollPane.setViewportView(tableTomates);
 
 		JPanel panel_4 = new JPanel();
 		this.contentPane.add(panel_4, BorderLayout.SOUTH);
@@ -119,6 +113,16 @@ public class PagePrincipale extends JFrame {
 
 		JButton btnPanier = new JButton("Accéder au panier");
 		panel_4.add(btnPanier);
+		
+		
+		
+		// afficher noms, couleur, et type de graine des tomates dans la table
+		for (int i = 0; i < tomates.getLesTomates().size(); i++) {
+			modeleTable.addRow(
+		new Object[] { tomates.getLesTomates().get(i).getDésignation(), tomates.getLesTomates().get(i).getCouleur(),
+			tomates.getLesTomates().get(i).getTypeGraine(), tomates.getLesTomates().get(i).getPrixTTC(), 
+			tomates.getLesTomates().get(i).getNombreDeGraines()});
+		}
 	}
 
 }
