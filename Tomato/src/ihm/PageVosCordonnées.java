@@ -12,18 +12,26 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import modèle.MonPanier;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PageVosCordonnées extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldNom;
-	private JTextField textField_1;
+	private JTextField textFieldPrenom;
 	private JTextField textFieldAdresse1;
-	private JTextField Adresse2;
+	private JTextField textFieldAdresse2;
 	private JTextField textFieldCP;
 	private JTextField textFieldVille;
 	private JTextField textFieldTel;
 	private JTextField textFieldMail;
+	
+	private MonPanier monPanier = new MonPanier();
 
 	/**
 	 * Launch the application.
@@ -69,10 +77,13 @@ public class PageVosCordonnées extends JFrame {
 		panel_4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 		JButton btnAnnuler = new JButton("Annuler");
+		btnAnnuler.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Panier.main(null);
+			}
+		});
 		panel_4.add(btnAnnuler);
-
-		JButton btnOk = new JButton("Ok");
-		panel_4.add(btnOk);
 
 		JPanel panel = new JPanel();
 		this.contentPane.add(panel, BorderLayout.CENTER);
@@ -96,9 +107,9 @@ public class PageVosCordonnées extends JFrame {
 		JLabel lblPrenom = new JLabel("Prénom");
 		panel_1_1.add(lblPrenom);
 
-		this.textField_1 = new JTextField();
-		this.textField_1.setColumns(10);
-		panel_1_1.add(this.textField_1);
+		this.textFieldPrenom = new JTextField();
+		this.textFieldPrenom.setColumns(10);
+		panel_1_1.add(this.textFieldPrenom);
 
 		JPanel panel_1_2 = new JPanel();
 		panel.add(panel_1_2);
@@ -118,9 +129,9 @@ public class PageVosCordonnées extends JFrame {
 		JLabel lblAdresse2 = new JLabel("Adresse 2");
 		panel_1_3.add(lblAdresse2);
 
-		this.Adresse2 = new JTextField();
-		this.Adresse2.setColumns(10);
-		panel_1_3.add(this.Adresse2);
+		this.textFieldAdresse2 = new JTextField();
+		this.textFieldAdresse2.setColumns(10);
+		panel_1_3.add(this.textFieldAdresse2);
 
 		JPanel panel_1_4 = new JPanel();
 		panel.add(panel_1_4);
@@ -165,6 +176,18 @@ public class PageVosCordonnées extends JFrame {
 		this.textFieldMail = new JTextField();
 		this.textFieldMail.setColumns(10);
 		panel_1_7.add(this.textFieldMail);
+		
+		JButton btnOk = new JButton("Ok");
+		btnOk.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				monPanier.setAllCoordonne(textFieldNom.getSelectedText(), textFieldPrenom.getSelectedText(),
+						textFieldAdresse1.getSelectedText(), textFieldCP.getSelectedText(), textFieldVille.getSelectedText(),
+						textFieldTel.getSelectedText(), textFieldMail.getSelectedText());
+				setVisible(false);;
+				Facture.main(null);
+			}
+		});
+		panel_4.add(btnOk);
 	}
 
 }

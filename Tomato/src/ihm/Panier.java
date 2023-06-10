@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Panier extends JFrame {
 
@@ -58,12 +60,30 @@ public class Panier extends JFrame {
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
 		JButton ButtonValide = new JButton("Valider la commande");
+		ButtonValide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PageVosCordonnées.main(null);
+			}
+		});
 		panel_1.add(ButtonValide, BorderLayout.WEST);
 		
 		JButton ButtonSuppr = new JButton("Supprimer le panier");
+		ButtonSuppr.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Ooops.main(null);
+			}
+		});
 		panel_1.add(ButtonSuppr, BorderLayout.CENTER);
 		
 		JButton ButtonAccueil = new JButton("Retour à l'accueil");
+		ButtonAccueil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PagePrincipale.main(null);
+			}
+		});
 		panel_1.add(ButtonAccueil, BorderLayout.EAST);
 		
 		table = new JTable();

@@ -16,6 +16,8 @@ import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PagePlusDinformation extends JFrame {
 
@@ -89,6 +91,12 @@ public class PagePlusDinformation extends JFrame {
 		contentPane.add(lblTitre, BorderLayout.NORTH);
 		
 		JButton btnAjouterAuPanier = new JButton("Ajouter ce produit au panier");
+		btnAjouterAuPanier.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PagePrincipale.main(null);
+			}
+		});
 		contentPane.add(btnAjouterAuPanier, BorderLayout.SOUTH);
 	}
 

@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Facture extends JFrame {
 
@@ -75,6 +77,12 @@ public class Facture extends JFrame {
 		panel_1.add(btnImprimer, BorderLayout.CENTER);
 		
 		JButton btnQuitter = new JButton("Quitter");
+		btnQuitter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Panier.main(null);
+			}
+		});
 		panel_1.add(btnQuitter, BorderLayout.EAST);
 	}
 

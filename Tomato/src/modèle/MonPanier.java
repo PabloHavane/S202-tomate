@@ -37,7 +37,6 @@ public class MonPanier {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.adresse1 = adresse1;
-		this.adresse2 = adresse2;
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.telephone = telephone;

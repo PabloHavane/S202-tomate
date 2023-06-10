@@ -9,6 +9,8 @@ import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ConfirmSuppr extends JFrame {
 
@@ -50,9 +52,21 @@ public class ConfirmSuppr extends JFrame {
 		contentPane.add(panel, BorderLayout.SOUTH);
 		
 		JButton btnOui = new JButton("Oui");
+		btnOui.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Ooops.main(null);
+			}
+		});
 		panel.add(btnOui);
 		
 		JButton btnNon = new JButton("Non");
+		btnNon.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Panier.main(null);
+			}
+		});
 		panel.add(btnNon);
 	}
 

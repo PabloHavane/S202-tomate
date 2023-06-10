@@ -17,6 +17,8 @@ import java.awt.Component;
 
 import modèle.Tomates;
 import javax.swing.JTextArea;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Conseils extends JFrame {
 
@@ -79,6 +81,12 @@ public class Conseils extends JFrame {
 		scrollPane.setViewportView(textAreaConseils);
 		
 		JButton btnAccueil = new JButton("Retour à l'accueil");
+		btnAccueil.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PagePrincipale.main(null);
+			}
+		});
 		contentPane.add(btnAccueil, BorderLayout.SOUTH);
 	}
 

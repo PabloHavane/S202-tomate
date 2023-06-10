@@ -20,6 +20,8 @@ import javax.swing.JScrollPane;
 
 import modèle.Tomates;
 import modèle.GenerationArticles;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PagePrincipale extends JFrame {
 
@@ -112,6 +114,12 @@ public class PagePrincipale extends JFrame {
 		panel_4.add(lblVoyezIciTous);
 
 		JButton btnPanier = new JButton("Accéder au panier");
+		btnPanier.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				Panier.main(null);
+			}
+		});
 		panel_4.add(btnPanier);
 		
 		

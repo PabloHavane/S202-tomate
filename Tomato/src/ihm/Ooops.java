@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Ooops extends JFrame {
 
@@ -48,6 +50,12 @@ public class Ooops extends JFrame {
 		contentPane.add(lblOoops, BorderLayout.NORTH);
 		
 		JButton btnRetour = new JButton("Retour");
+		btnRetour.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				PagePrincipale.main(null);
+			}
+		});
 		contentPane.add(btnRetour, BorderLayout.SOUTH);
 		
 		JLabel lblVotrePanierEst = new JLabel("<html>Votre panier est vide. Il faut d'abord que vous<br>ajoutiez un article.</html>");
