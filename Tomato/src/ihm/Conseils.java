@@ -2,6 +2,7 @@ package ihm;
 
 import java.awt.EventQueue;
 
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -14,10 +15,12 @@ import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.Component;
 
+import modèle.Tomates;
+import javax.swing.JTextArea;
+
 public class Conseils extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldConseils;
 
 	/**
 	 * Launch the application.
@@ -62,27 +65,18 @@ public class Conseils extends JFrame {
 		JLabel logoImg = new JLabel("Img");
 		panel_1.add(logoImg, BorderLayout.WEST);
 		
-		JPanel panel_2 = new JPanel();
-		panel_1.add(panel_2, BorderLayout.SOUTH);
-		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		JLabel lblSemis = new JLabel("Semis :");
-		lblSemis.setHorizontalAlignment(SwingConstants.LEFT);
-		panel_2.add(lblSemis);
-		
-		JLabel lblRepiquage = new JLabel("Repiquage :");
-		panel_2.add(lblRepiquage);
-		
-		JLabel lblRécolte = new JLabel("Récolte :");
-		panel_2.add(lblRécolte);
+		JTextArea textAreaConseilTitre = new JTextArea();
+		textAreaConseilTitre.setEditable(false);
+		textAreaConseilTitre.setText(Tomates.CONSEILS_DE_CULTURE_TITRE);
+		panel_1.add(textAreaConseilTitre, BorderLayout.SOUTH);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel.add(scrollPane, BorderLayout.CENTER);
 		
-		textFieldConseils = new JTextField();
-		textFieldConseils.setEditable(false);
-		scrollPane.setViewportView(textFieldConseils);
-		textFieldConseils.setColumns(10);
+		JTextArea textAreaConseils = new JTextArea();
+		textAreaConseils.setEditable(false);
+		textAreaConseils.setText(Tomates.CONSEILS_DE_CULTURE);
+		scrollPane.setViewportView(textAreaConseils);
 		
 		JButton btnAccueil = new JButton("Retour à l'accueil");
 		contentPane.add(btnAccueil, BorderLayout.SOUTH);

@@ -11,18 +11,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.SwingConstants;
 
 public class PageVosCordonnées extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textFieldNom;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
+	private JTextField textFieldAdresse1;
+	private JTextField Adresse2;
+	private JTextField textFieldCP;
+	private JTextField textFieldVille;
+	private JTextField textFieldTel;
+	private JTextField textFieldMail;
 
 	/**
 	 * Launch the application.
@@ -55,22 +56,23 @@ public class PageVosCordonnées extends JFrame {
 
 		JPanel panel_3 = new JPanel();
 		this.contentPane.add(panel_3, BorderLayout.NORTH);
+		panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel_9 = new JLabel("New label");
-		panel_3.add(lblNewLabel_9);
+		JLabel lblImg = new JLabel("Img");
+		panel_3.add(lblImg);
 
-		JLabel label_1 = new JLabel("New label");
-		panel_3.add(label_1);
+		JLabel lblTitre = new JLabel("Vos coordonnées");
+		panel_3.add(lblTitre);
 
 		JPanel panel_4 = new JPanel();
 		this.contentPane.add(panel_4, BorderLayout.SOUTH);
 		panel_4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JButton button = new JButton("New button");
-		panel_4.add(button);
+		JButton btnAnnuler = new JButton("Annuler");
+		panel_4.add(btnAnnuler);
 
-		JButton btnNewButton = new JButton("New button");
-		panel_4.add(btnNewButton);
+		JButton btnOk = new JButton("Ok");
+		panel_4.add(btnOk);
 
 		JPanel panel = new JPanel();
 		this.contentPane.add(panel, BorderLayout.CENTER);
@@ -80,19 +82,19 @@ public class PageVosCordonnées extends JFrame {
 		panel.add(panel_1);
 		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel = new JLabel("New label");
-		panel_1.add(lblNewLabel);
+		JLabel lblNom = new JLabel("Nom");
+		panel_1.add(lblNom);
 
-		this.textField = new JTextField();
-		panel_1.add(this.textField);
-		this.textField.setColumns(10);
+		this.textFieldNom = new JTextField();
+		panel_1.add(this.textFieldNom);
+		this.textFieldNom.setColumns(10);
 
 		JPanel panel_1_1 = new JPanel();
 		panel.add(panel_1_1);
 		panel_1_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		panel_1_1.add(lblNewLabel_1);
+		JLabel lblPrenom = new JLabel("Prénom");
+		panel_1_1.add(lblPrenom);
 
 		this.textField_1 = new JTextField();
 		this.textField_1.setColumns(10);
@@ -102,67 +104,67 @@ public class PageVosCordonnées extends JFrame {
 		panel.add(panel_1_2);
 		panel_1_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		panel_1_2.add(lblNewLabel_2);
+		JLabel lblAdresse1 = new JLabel("Adresse 1");
+		panel_1_2.add(lblAdresse1);
 
-		this.textField_2 = new JTextField();
-		this.textField_2.setColumns(10);
-		panel_1_2.add(this.textField_2);
+		this.textFieldAdresse1 = new JTextField();
+		this.textFieldAdresse1.setColumns(10);
+		panel_1_2.add(this.textFieldAdresse1);
 
 		JPanel panel_1_3 = new JPanel();
 		panel.add(panel_1_3);
 		panel_1_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		panel_1_3.add(lblNewLabel_3);
+		JLabel lblAdresse2 = new JLabel("Adresse 2");
+		panel_1_3.add(lblAdresse2);
 
-		this.textField_3 = new JTextField();
-		this.textField_3.setColumns(10);
-		panel_1_3.add(this.textField_3);
+		this.Adresse2 = new JTextField();
+		this.Adresse2.setColumns(10);
+		panel_1_3.add(this.Adresse2);
 
 		JPanel panel_1_4 = new JPanel();
 		panel.add(panel_1_4);
 		panel_1_4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		panel_1_4.add(lblNewLabel_4);
+		JLabel lblCP = new JLabel("Code postal");
+		panel_1_4.add(lblCP);
 
-		this.textField_4 = new JTextField();
-		this.textField_4.setColumns(10);
-		panel_1_4.add(this.textField_4);
+		this.textFieldCP = new JTextField();
+		this.textFieldCP.setColumns(10);
+		panel_1_4.add(this.textFieldCP);
 
 		JPanel panel_1_5 = new JPanel();
 		panel.add(panel_1_5);
 		panel_1_5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel_5 = new JLabel("New label");
-		panel_1_5.add(lblNewLabel_5);
+		JLabel lblVille = new JLabel("Ville");
+		panel_1_5.add(lblVille);
 
-		this.textField_5 = new JTextField();
-		this.textField_5.setColumns(10);
-		panel_1_5.add(this.textField_5);
+		this.textFieldVille = new JTextField();
+		this.textFieldVille.setColumns(10);
+		panel_1_5.add(this.textFieldVille);
 
 		JPanel panel_1_6 = new JPanel();
 		panel.add(panel_1_6);
 		panel_1_6.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel_6 = new JLabel("New label");
-		panel_1_6.add(lblNewLabel_6);
+		JLabel lblTel = new JLabel("Téléphone");
+		panel_1_6.add(lblTel);
 
-		this.textField_6 = new JTextField();
-		this.textField_6.setColumns(10);
-		panel_1_6.add(this.textField_6);
+		this.textFieldTel = new JTextField();
+		this.textFieldTel.setColumns(10);
+		panel_1_6.add(this.textFieldTel);
 
 		JPanel panel_1_7 = new JPanel();
 		panel.add(panel_1_7);
 		panel_1_7.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel_7 = new JLabel("New label");
-		panel_1_7.add(lblNewLabel_7);
+		JLabel lblMail = new JLabel("Mail");
+		panel_1_7.add(lblMail);
 
-		this.textField_7 = new JTextField();
-		this.textField_7.setColumns(10);
-		panel_1_7.add(this.textField_7);
+		this.textFieldMail = new JTextField();
+		this.textFieldMail.setColumns(10);
+		panel_1_7.add(this.textFieldMail);
 	}
 
 }
