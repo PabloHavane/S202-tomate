@@ -49,16 +49,16 @@ public class Facture extends JFrame {
 		contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("Facture");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel.add(lblNewLabel, BorderLayout.CENTER);
+		JLabel lblFacture = new JLabel("Facture");
+		lblFacture.setHorizontalAlignment(SwingConstants.CENTER);
+		panel.add(lblFacture, BorderLayout.CENTER);
 		
-		JLabel lblNewLabel_1 = new JLabel("img");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		panel.add(lblNewLabel_1, BorderLayout.WEST);
+		JLabel lblImg = new JLabel("img");
+		lblImg.setHorizontalAlignment(SwingConstants.RIGHT);
+		panel.add(lblImg, BorderLayout.WEST);
 		
-		JLabel lblNewLabel_2 = new JLabel("Merci de votre visite !");
-		panel.add(lblNewLabel_2, BorderLayout.SOUTH);
+		JLabel lblRemerciement = new JLabel("Merci de votre visite !");
+		panel.add(lblRemerciement, BorderLayout.SOUTH);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, BorderLayout.CENTER);
@@ -71,11 +71,11 @@ public class Facture extends JFrame {
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		JButton btnNewButton = new JButton("Imprimer");
-		panel_1.add(btnNewButton, BorderLayout.CENTER);
+		JButton btnImprimer = new JButton("Imprimer");
+		panel_1.add(btnImprimer, BorderLayout.CENTER);
 		
-		JButton btnNewButton_1 = new JButton("Quitter");
-		panel_1.add(btnNewButton_1, BorderLayout.EAST);
+		JButton btnQuitter = new JButton("Quitter");
+		panel_1.add(btnQuitter, BorderLayout.EAST);
 	}
 
 }

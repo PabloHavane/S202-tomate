@@ -51,14 +51,16 @@ public class PagePrincipale extends JFrame {
 		this.contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblNewLabel = new JLabel("New label");
-		panel.add(lblNewLabel);
+		JLabel lblHeadLeftImg = new JLabel("img");
+		lblHeadLeftImg.setHorizontalAlignment(SwingConstants.LEFT);
+		panel.add(lblHeadLeftImg);
 
-		JLabel label = new JLabel("New label");
-		panel.add(label);
+		JLabel lblTomatoketchup = new JLabel("TomatoKetchup");
+		panel.add(lblTomatoketchup);
 
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		panel.add(lblNewLabel_1);
+		JLabel lblHeadRightImg = new JLabel("Img");
+		lblHeadRightImg.setHorizontalAlignment(SwingConstants.RIGHT);
+		panel.add(lblHeadRightImg);
 
 		JPanel panel_1 = new JPanel();
 		this.contentPane.add(panel_1, BorderLayout.CENTER);
@@ -68,16 +70,17 @@ public class PagePrincipale extends JFrame {
 		panel_1.add(panel_2, BorderLayout.NORTH);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_2.add(lblNewLabel_2);
+		JLabel lblNosTomates = new JLabel("Nos tomates au ketchup");
+		lblNosTomates.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_2.add(lblNosTomates);
 
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_2.add(lblNewLabel_3);
+		JLabel lblChoixTomate = new JLabel("Choisissez la tomate de vos rêves");
+		lblChoixTomate.setEnabled(false);
+		lblChoixTomate.setHorizontalAlignment(SwingConstants.LEFT);
+		panel_2.add(lblChoixTomate);
 
-		JList list = new JList();
-		panel_1.add(list, BorderLayout.CENTER);
+		JList listTomates = new JList();
+		panel_1.add(listTomates, BorderLayout.CENTER);
 
 		JPanel panel_3 = new JPanel();
 		panel_1.add(panel_3, BorderLayout.SOUTH);
@@ -87,35 +90,35 @@ public class PagePrincipale extends JFrame {
 		panel_3.add(panel_3_1, BorderLayout.NORTH);
 		panel_3_1.setLayout(new GridLayout(2, 2, 0, 0));
 		
-		JComboBox comboBox = new JComboBox();
-		panel_3_1.add(comboBox);
+		JComboBox comboBoxType = new JComboBox();
+		panel_3_1.add(comboBoxType);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		panel_3_1.add(comboBox_1);
+		JComboBox comboBoxCouleur = new JComboBox();
+		panel_3_1.add(comboBoxCouleur);
 		
-		JButton btnNewButton = new JButton("New button");
-		panel_3_1.add(btnNewButton);
+		JButton btnPlusInfo = new JButton("Plus d'information sur cette tomate");
+		panel_3_1.add(btnPlusInfo);
 		
-		JButton button = new JButton("New button");
-		panel_3_1.add(button);
+		JButton btnAjouterPanier = new JButton("Ajouter au panier");
+		panel_3_1.add(btnAjouterPanier);
 		
-		JButton btnNewButton_2 = new JButton("New button");
-		panel_3.add(btnNewButton_2, BorderLayout.SOUTH);
+		JButton btnConseils = new JButton("Conseils de culture");
+		panel_3.add(btnConseils, BorderLayout.SOUTH);
 
 		JPanel panel_4 = new JPanel();
 		this.contentPane.add(panel_4, BorderLayout.SOUTH);
 		panel_4.setLayout(new GridLayout(3, 1, 0, 0));
 
-		JLabel lblNewLabel_4 = new JLabel("New label");
-		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_4.add(lblNewLabel_4);
+		JLabel lblPanier = new JLabel("Mon Panier");
+		lblPanier.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(lblPanier);
 
-		JLabel label_1 = new JLabel("New label");
-		label_1.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_4.add(label_1);
+		JLabel lblVoyezIciTous = new JLabel("Voyez ici tous les produits que vous avez commandé précédemment.\nSi vous n'avez ajouté aucun produit, vous ne pourrez pas consulter votre panier.");
+		lblVoyezIciTous.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(lblVoyezIciTous);
 
-		JButton btnNewButton_1 = new JButton("New button");
-		panel_4.add(btnNewButton_1);
+		JButton btnPanier = new JButton("Accéder au panier");
+		panel_4.add(btnPanier);
 	}
 
 }

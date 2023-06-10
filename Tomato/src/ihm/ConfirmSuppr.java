@@ -42,15 +42,15 @@ public class ConfirmSuppr extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("Voulez-vous vraiment supprimer le panier ?");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(lblNewLabel, BorderLayout.CENTER);
+		JLabel lblConfirmation = new JLabel("Voulez-vous vraiment supprimer le panier ?");
+		lblConfirmation.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lblConfirmation, BorderLayout.CENTER);
 		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.SOUTH);
 		
-		JButton btnNewButton = new JButton("Oui");
-		panel.add(btnNewButton);
+		JButton btnOui = new JButton("Oui");
+		panel.add(btnOui);
 		
 		JButton btnNon = new JButton("Non");
 		panel.add(btnNon);

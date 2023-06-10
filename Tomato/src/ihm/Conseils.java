@@ -17,7 +17,7 @@ import java.awt.Component;
 public class Conseils extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textFieldConseils;
 
 	/**
 	 * Launch the application.
@@ -55,9 +55,9 @@ public class Conseils extends JFrame {
 		panel.add(panel_1, BorderLayout.NORTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		JLabel lblNewLabel = new JLabel("Conseil de culture");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_1.add(lblNewLabel, BorderLayout.CENTER);
+		JLabel lblTitle = new JLabel("Conseil de culture");
+		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_1.add(lblTitle, BorderLayout.CENTER);
 		
 		JLabel logoImg = new JLabel("Img");
 		panel_1.add(logoImg, BorderLayout.WEST);
@@ -66,26 +66,26 @@ public class Conseils extends JFrame {
 		panel_1.add(panel_2, BorderLayout.SOUTH);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JLabel lblNewLabel_1 = new JLabel("Semis :");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.LEFT);
-		panel_2.add(lblNewLabel_1);
+		JLabel lblSemis = new JLabel("Semis :");
+		lblSemis.setHorizontalAlignment(SwingConstants.LEFT);
+		panel_2.add(lblSemis);
 		
-		JLabel lblNewLabel_2 = new JLabel("Repiquage :");
-		panel_2.add(lblNewLabel_2);
+		JLabel lblRepiquage = new JLabel("Repiquage :");
+		panel_2.add(lblRepiquage);
 		
-		JLabel lblNewLabel_3 = new JLabel("Récolte :");
-		panel_2.add(lblNewLabel_3);
+		JLabel lblRécolte = new JLabel("Récolte :");
+		panel_2.add(lblRécolte);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel.add(scrollPane, BorderLayout.CENTER);
 		
-		textField = new JTextField();
-		textField.setEditable(false);
-		scrollPane.setViewportView(textField);
-		textField.setColumns(10);
+		textFieldConseils = new JTextField();
+		textFieldConseils.setEditable(false);
+		scrollPane.setViewportView(textFieldConseils);
+		textFieldConseils.setColumns(10);
 		
-		JButton btnNewButton = new JButton("New button");
-		contentPane.add(btnNewButton, BorderLayout.SOUTH);
+		JButton btnAccueil = new JButton("Retour à l'accueil");
+		contentPane.add(btnAccueil, BorderLayout.SOUTH);
 	}
 
 }

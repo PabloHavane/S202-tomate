@@ -15,11 +15,13 @@ import javax.swing.JTextField;
 import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 public class PagePlusDinformation extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField textFieldDescription;
+	private JTextField textFieldPrix;
 
 	/**
 	 * Launch the application.
@@ -53,37 +55,41 @@ public class PagePlusDinformation extends JFrame {
 		contentPane.add(panel, BorderLayout.WEST);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		panel.add(lblNewLabel);
+		JLabel lblDescription = new JLabel("Description");
+		panel.add(lblDescription);
 		
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		JTextArea textArea = new JTextArea();
-		panel_1.add(textArea, BorderLayout.NORTH);
+		textFieldDescription = new JTextField();
+		textFieldDescription.setEditable(false);
+		panel_1.add(textFieldDescription, BorderLayout.CENTER);
+		textFieldDescription.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		panel_1.add(comboBox, BorderLayout.WEST);
+		JPanel panel_2 = new JPanel();
+		panel_1.add(panel_2, BorderLayout.SOUTH);
 		
-		textField = new JTextField();
-		panel_1.add(textField, BorderLayout.CENTER);
-		textField.setColumns(10);
+		JComboBox comboBoxProduitSimilaire = new JComboBox();
+		panel_2.add(comboBoxProduitSimilaire);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		panel_1.add(comboBox_1, BorderLayout.EAST);
+		textFieldPrix = new JTextField();
+		textFieldPrix.setText("Prix");
+		panel_2.add(textFieldPrix);
+		textFieldPrix.setColumns(10);
 		
-		JButton button = new JButton("New button");
-		panel_1.add(button, BorderLayout.SOUTH);
+		JComboBox comboBoxQuantité = new JComboBox();
+		panel_2.add(comboBoxQuantité);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
-		contentPane.add(lblNewLabel_1, BorderLayout.EAST);
+		JLabel lblImg = new JLabel("Img");
+		contentPane.add(lblImg, BorderLayout.EAST);
 		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		contentPane.add(lblNewLabel_2, BorderLayout.NORTH);
+		JLabel lblTitre = new JLabel("Plus d'informations sur votre choix");
+		lblTitre.setHorizontalAlignment(SwingConstants.CENTER);
+		contentPane.add(lblTitre, BorderLayout.NORTH);
 		
-		JButton btnNewButton = new JButton("New button");
-		contentPane.add(btnNewButton, BorderLayout.SOUTH);
+		JButton btnAjouterAuPanier = new JButton("Ajouter ce produit au panier");
+		contentPane.add(btnAjouterAuPanier, BorderLayout.SOUTH);
 	}
 
 }
