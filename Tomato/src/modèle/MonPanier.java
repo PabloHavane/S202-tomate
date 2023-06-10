@@ -24,7 +24,7 @@ public class MonPanier {
 		this.tomatesDuPanier.clear();
 	}
 	
-	public int sizehMesTomates() {
+	public int sizeMesTomates() {
 		return this.tomatesDuPanier.size();
 	}
 	
