@@ -87,7 +87,6 @@ public class PagePrincipale extends JFrame {
 		panel_2.add(lblNosTomates);
 
 		JLabel lblChoixTomate = new JLabel("Choisissez la tomate de vos rêves");
-		lblChoixTomate.setEnabled(false);
 		lblChoixTomate.setHorizontalAlignment(SwingConstants.LEFT);
 		panel_2.add(lblChoixTomate);
 		
