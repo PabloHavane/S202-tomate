@@ -21,6 +21,7 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
+import javax.swing.JScrollPane;
 
 public class PagePlusDinformation extends JFrame {
 
@@ -28,6 +29,7 @@ public class PagePlusDinformation extends JFrame {
 	private JTextField textFieldPrix;
 	private JTable tableDescription;
 	private DefaultTableModel modeleTable;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -84,6 +86,23 @@ public class PagePlusDinformation extends JFrame {
 		JComboBox comboBoxQuantité = new JComboBox();
 		panel_2.add(comboBoxQuantité);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		panel_1.add(scrollPane, BorderLayout.CENTER);
+		
+		JTextArea textAreaDescription = new JTextArea();
+		if (PagePrincipale.selectedTomato.getSousTitre() == null) {
+		textAreaDescription.setText(PagePrincipale.selectedTomato.getDésignation() + "\n" +
+				PagePrincipale.selectedTomato.getCouleur() + "\n" +
+				PagePrincipale.selectedTomato.getTypeGraine() + "\n" +
+				PagePrincipale.selectedTomato.getDescription());
+		} else {
+			textAreaDescription.setText(PagePrincipale.selectedTomato.getDésignation() + "\n" +
+					PagePrincipale.selectedTomato.getSousTitre() + "\n" +
+					PagePrincipale.selectedTomato.getCouleur() + "\n" +
+					PagePrincipale.selectedTomato.getTypeGraine() + "\n" +
+					PagePrincipale.selectedTomato.getDescription());
+		}
+		scrollPane.setViewportView(textAreaDescription);
 		
 		
 		JLabel lblImg = new JLabel("Img");
