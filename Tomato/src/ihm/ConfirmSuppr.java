@@ -55,7 +55,7 @@ public class ConfirmSuppr extends JFrame {
 		btnOui.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				Ooops.main(null);
+				PagePrincipale.main(null);
 			}
 		});
 		panel.add(btnOui);
@@ -65,6 +65,7 @@ public class ConfirmSuppr extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				Panier.main(null);
+				System.out.println(PagePrincipale.selectedRowForOtherPage);
 			}
 		});
 		panel.add(btnNon);

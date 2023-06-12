@@ -22,6 +22,9 @@ import modèle.Tomates;
 import modèle.GenerationArticles;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.ListSelectionModel;
 
 public class PagePrincipale extends JFrame {
 
@@ -29,6 +32,7 @@ public class PagePrincipale extends JFrame {
 	private JTable tableTomates;
 	private DefaultTableModel modeleTable;
 	private Tomates tomates= GenerationArticles.générationDeBaseDesTomates();
+	public static int selectedRowForOtherPage;
 
 	/**
 	 * Launch the application.
@@ -96,8 +100,20 @@ public class PagePrincipale extends JFrame {
 		modeleTable = new DefaultTableModel(
 		new Object[] { "Désignation", "Couleur", "Type de graine", "Prix (€)", "Nombre de graines" }, 0);
 		tableTomates = new JTable(modeleTable);
+		tableTomates.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		        int selectedRow = tableTomates.getSelectedRow();
+		        if (selectedRow != -1) {
+		        	selectedRowForOtherPage = selectedRow;
+		            setVisible(false);
+		            PagePlusDinformation pagePlusDinfo = new PagePlusDinformation();
+		            pagePlusDinfo.setVisible(true);
+		        }
+		    }
+		});
+		
 		tableTomates.setModel(modeleTable);
-		tableTomates.setEnabled(false);
 		scrollPane.setViewportView(tableTomates);
 
 		JPanel panel_4 = new JPanel();
@@ -122,8 +138,6 @@ public class PagePrincipale extends JFrame {
 		panel_4.add(btnPanier);
 		
 		
-		
-		// afficher noms, couleur, et type de graine des tomates dans la table
 		for (int i = 0; i < tomates.getLesTomates().size(); i++) {
 			modeleTable.addRow(
 		new Object[] { tomates.getLesTomates().get(i).getDésignation(), tomates.getLesTomates().get(i).getCouleur(),

@@ -24,6 +24,7 @@ public class PagePlusDinformation extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldDescription;
 	private JTextField textFieldPrix;
+	private int tableI = PagePrincipale.selectedRowForOtherPage;
 
 	/**
 	 * Launch the application.
