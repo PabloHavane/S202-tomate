@@ -19,6 +19,7 @@ import javax.swing.JScrollPane;
 
 
 import modèle.Tomates;
+import modèle.Tomate;
 import modèle.GenerationArticles;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -32,7 +33,8 @@ public class PagePrincipale extends JFrame {
 	private JTable tableTomates;
 	private DefaultTableModel modeleTable;
 	private Tomates tomates= GenerationArticles.générationDeBaseDesTomates();
-	public static int selectedRowForOtherPage;
+	public String selectedTomatoName;
+	public static Tomate selectedTomato;
 
 	/**
 	 * Launch the application.
@@ -101,11 +103,13 @@ public class PagePrincipale extends JFrame {
 		new Object[] { "Désignation", "Couleur", "Type de graine", "Prix (€)", "Nombre de graines" }, 0);
 		tableTomates = new JTable(modeleTable);
 		tableTomates.addMouseListener(new MouseAdapter() {
+			
 		    @Override
 		    public void mouseClicked(MouseEvent e) {
 		        int selectedRow = tableTomates.getSelectedRow();
 		        if (selectedRow != -1) {
-		        	selectedRowForOtherPage = selectedRow;
+		        	selectedTomatoName = tableTomates.getModel().getValueAt(selectedRow, 0).toString();
+		        	selectedTomato = tomates.getTomate(selectedTomatoName);
 		            setVisible(false);
 		            PagePlusDinformation pagePlusDinfo = new PagePlusDinformation();
 		            pagePlusDinfo.setVisible(true);

@@ -65,7 +65,6 @@ public class ConfirmSuppr extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 				Panier.main(null);
-				System.out.println(PagePrincipale.selectedRowForOtherPage);
 			}
 		});
 		panel.add(btnNon);

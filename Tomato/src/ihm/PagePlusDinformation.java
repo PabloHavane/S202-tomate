@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -18,13 +20,14 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
 
 public class PagePlusDinformation extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldDescription;
 	private JTextField textFieldPrix;
-	private int tableI = PagePrincipale.selectedRowForOtherPage;
+	private JTable tableDescription;
+	private DefaultTableModel modeleTable;
 
 	/**
 	 * Launch the application.
@@ -55,7 +58,7 @@ public class PagePlusDinformation extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.WEST);
+		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
 		JLabel lblDescription = new JLabel("Description");
@@ -65,10 +68,7 @@ public class PagePlusDinformation extends JFrame {
 		panel.add(panel_1);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
-		textFieldDescription = new JTextField();
-		textFieldDescription.setEditable(false);
-		panel_1.add(textFieldDescription, BorderLayout.CENTER);
-		textFieldDescription.setColumns(10);
+		
 		
 		JPanel panel_2 = new JPanel();
 		panel_1.add(panel_2, BorderLayout.SOUTH);
@@ -83,6 +83,8 @@ public class PagePlusDinformation extends JFrame {
 		
 		JComboBox comboBoxQuantité = new JComboBox();
 		panel_2.add(comboBoxQuantité);
+		
+		
 		
 		JLabel lblImg = new JLabel("Img");
 		contentPane.add(lblImg, BorderLayout.EAST);
