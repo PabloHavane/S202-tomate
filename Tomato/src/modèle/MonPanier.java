@@ -15,7 +15,7 @@ public class MonPanier {
 	private String telephone;
 	private String mail;
 	
-	public static MonPanier MON_PANIER = new MonPanier();
+	public static MonPanier monPanier = new MonPanier();
 	
 	public MonPanier() {
 		this.tomatesDuPanier = new LinkedList<Tomate>();
