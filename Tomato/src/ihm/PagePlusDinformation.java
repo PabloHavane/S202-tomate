@@ -27,14 +27,14 @@ import javax.swing.SpinnerNumberModel;
 
 import modèle.MonPanier;
 import javax.swing.JSpinner;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class PagePlusDinformation extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textFieldPrix;
-	private JTable tableDescription;
-	private DefaultTableModel modeleTable;
-	private JTable table;
+	private JTextField textFieldQuantité;
 
 	/**
 	 * Launch the application.
@@ -80,19 +80,38 @@ public class PagePlusDinformation extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_1.add(panel_2, BorderLayout.SOUTH);
 		
-		JComboBox comboBoxProduitSimilaire = new JComboBox();
-		panel_2.add(comboBoxProduitSimilaire);
-		
-		textFieldPrix = new JTextField();
+		textFieldPrix = new JTextField("Prix");
 		textFieldPrix.setEditable(false);
-		textFieldPrix.setText("Prix");
 		panel_2.add(textFieldPrix);
 		textFieldPrix.setColumns(10);
 
-		SpinnerNumberModel spinnerModel = new SpinnerNumberModel(1,0,PagePrincipale.selectedTomato.getNombreDeGraines(),1);
-		JSpinner spinnerQuantité = new JSpinner(spinnerModel);
 		
-		panel_2.add(spinnerQuantité);
+		JLabel lblQuantit = new JLabel("Quantité :");
+		panel_2.add(lblQuantit);
+		
+		textFieldQuantité = new JTextField();
+		textFieldQuantité.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				float prix=PagePrincipale.selectedTomato.getPrixTTC();
+				if (textFieldQuantité.getText().isEmpty()) {
+					textFieldPrix.setText("0.0€");
+				}else {
+					float q = Float.valueOf(textFieldQuantité.getText());
+					if (q<=0) {
+						textFieldPrix.setText("0.0€");
+					} else if (q>PagePrincipale.selectedTomato.getNombreDeGraines()) {
+						q=PagePrincipale.selectedTomato.getNombreDeGraines();
+						textFieldPrix.setText(Float.toString(prix*q)+"€");
+						textFieldQuantité.setText(Float.toString(q));
+					} else {
+						textFieldPrix.setText(Float.toString(prix*q)+"€");
+					}
+				}
+						
+			}
+		});
+		panel_2.add(textFieldQuantité);
+		textFieldQuantité.setColumns(10);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel_1.add(scrollPane, BorderLayout.CENTER);
@@ -110,6 +129,7 @@ public class PagePlusDinformation extends JFrame {
 					PagePrincipale.selectedTomato.getTypeGraine() + "\n" +
 					PagePrincipale.selectedTomato.getDescription());
 		}
+		textAreaDescription.append(PagePrincipale.selectedTomato.toStringAvecTomatesApparentées());
 		textAreaDescription.setLineWrap(true);
 		scrollPane.setViewportView(textAreaDescription);
 		
@@ -126,8 +146,10 @@ public class PagePlusDinformation extends JFrame {
 		btnAjouterAuPanier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				for (int i=0; i < (int) spinnerQuantité.getValue(); i++) {
-					MonPanier.monPanier.addMesTomate(PagePrincipale.selectedTomato, 1);
+				if (textFieldPrix.getText() != "0.0€" || textFieldPrix.getText() != "Prix") {
+					for (int i=0; i < Float.valueOf(textFieldQuantité.getText()); i++) {
+						MonPanier.monPanier.addMesTomate(PagePrincipale.selectedTomato, 1);
+					}
 				}
 				PagePrincipale.main(null);
 			}
