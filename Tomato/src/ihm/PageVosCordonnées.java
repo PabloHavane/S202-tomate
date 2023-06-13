@@ -3,6 +3,9 @@ package ihm;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -11,13 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.SwingConstants;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import modèle.MonPanier;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class PageVosCordonnées extends JFrame {
 
@@ -30,7 +28,7 @@ public class PageVosCordonnées extends JFrame {
 	private JTextField textFieldVille;
 	private JTextField textFieldTel;
 	private JTextField textFieldMail;
-	
+
 	private MonPanier monPanier = new MonPanier();
 
 	/**
@@ -78,8 +76,9 @@ public class PageVosCordonnées extends JFrame {
 
 		JButton btnAnnuler = new JButton("Annuler");
 		btnAnnuler.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				PageVosCordonnées.this.setVisible(false);
 				Panier.main(null);
 			}
 		});
@@ -91,7 +90,7 @@ public class PageVosCordonnées extends JFrame {
 
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1);
-		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
 
 		JLabel lblNom = new JLabel("Nom");
 		panel_1.add(lblNom);
@@ -102,7 +101,7 @@ public class PageVosCordonnées extends JFrame {
 
 		JPanel panel_1_1 = new JPanel();
 		panel.add(panel_1_1);
-		panel_1_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel_1_1.setLayout(new GridLayout(0, 2, 0, 0));
 
 		JLabel lblPrenom = new JLabel("Prénom");
 		panel_1_1.add(lblPrenom);
@@ -113,7 +112,7 @@ public class PageVosCordonnées extends JFrame {
 
 		JPanel panel_1_2 = new JPanel();
 		panel.add(panel_1_2);
-		panel_1_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel_1_2.setLayout(new GridLayout(0, 2, 0, 0));
 
 		JLabel lblAdresse1 = new JLabel("Adresse 1");
 		panel_1_2.add(lblAdresse1);
@@ -124,7 +123,7 @@ public class PageVosCordonnées extends JFrame {
 
 		JPanel panel_1_3 = new JPanel();
 		panel.add(panel_1_3);
-		panel_1_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel_1_3.setLayout(new GridLayout(0, 2, 0, 0));
 
 		JLabel lblAdresse2 = new JLabel("Adresse 2");
 		panel_1_3.add(lblAdresse2);
@@ -135,7 +134,7 @@ public class PageVosCordonnées extends JFrame {
 
 		JPanel panel_1_4 = new JPanel();
 		panel.add(panel_1_4);
-		panel_1_4.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel_1_4.setLayout(new GridLayout(0, 2, 0, 0));
 
 		JLabel lblCP = new JLabel("Code postal");
 		panel_1_4.add(lblCP);
@@ -146,7 +145,7 @@ public class PageVosCordonnées extends JFrame {
 
 		JPanel panel_1_5 = new JPanel();
 		panel.add(panel_1_5);
-		panel_1_5.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel_1_5.setLayout(new GridLayout(0, 2, 0, 0));
 
 		JLabel lblVille = new JLabel("Ville");
 		panel_1_5.add(lblVille);
@@ -157,7 +156,7 @@ public class PageVosCordonnées extends JFrame {
 
 		JPanel panel_1_6 = new JPanel();
 		panel.add(panel_1_6);
-		panel_1_6.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel_1_6.setLayout(new GridLayout(0, 2, 0, 0));
 
 		JLabel lblTel = new JLabel("Téléphone");
 		panel_1_6.add(lblTel);
@@ -168,7 +167,7 @@ public class PageVosCordonnées extends JFrame {
 
 		JPanel panel_1_7 = new JPanel();
 		panel.add(panel_1_7);
-		panel_1_7.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		panel_1_7.setLayout(new GridLayout(0, 2, 0, 0));
 
 		JLabel lblMail = new JLabel("Mail");
 		panel_1_7.add(lblMail);
@@ -176,14 +175,20 @@ public class PageVosCordonnées extends JFrame {
 		this.textFieldMail = new JTextField();
 		this.textFieldMail.setColumns(10);
 		panel_1_7.add(this.textFieldMail);
-		
+
 		JButton btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				monPanier.setAllCoordonne(textFieldNom.getSelectedText(), textFieldPrenom.getSelectedText(),
-						textFieldAdresse1.getSelectedText(), textFieldCP.getSelectedText(), textFieldVille.getSelectedText(),
-						textFieldTel.getSelectedText(), textFieldMail.getSelectedText());
-				setVisible(false);;
+				PageVosCordonnées.this.monPanier.setAllCoordonne(PageVosCordonnées.this.textFieldNom.getSelectedText(),
+						PageVosCordonnées.this.textFieldPrenom.getSelectedText(),
+						PageVosCordonnées.this.textFieldAdresse1.getSelectedText(),
+						PageVosCordonnées.this.textFieldCP.getSelectedText(),
+						PageVosCordonnées.this.textFieldVille.getSelectedText(),
+						PageVosCordonnées.this.textFieldTel.getSelectedText(),
+						PageVosCordonnées.this.textFieldMail.getSelectedText());
+				PageVosCordonnées.this.setVisible(false);
+				;
 				Facture.main(null);
 			}
 		});

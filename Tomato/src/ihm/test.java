@@ -8,28 +8,23 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import modèle.Couleur;
 import modèle.GenerationArticles;
 import modèle.Tomate;
 import modèle.Tomates;
-import modèle.TypeTomate;
 
-public class PagePrincipale extends JFrame {
+public class test extends JFrame {
 
 	private JPanel contentPane;
 	private JTable tableTomates;
@@ -125,61 +120,27 @@ public class PagePrincipale extends JFrame {
 
 		JPanel panel_4 = new JPanel();
 		this.contentPane.add(panel_4, BorderLayout.SOUTH);
+		panel_4.setLayout(new GridLayout(3, 1, 0, 0));
 
-		JButton btnConseil = new JButton("Conseil de culture");
-		btnConseil.addActionListener(new ActionListener() {
+		JLabel lblPanier = new JLabel("Mon Panier");
+		lblPanier.setHorizontalAlignment(SwingConstants.CENTER);
+		panel_4.add(lblPanier);
+
+		JButton btnPanier = new JButton("Accéder au panier");
+		btnPanier.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PagePrincipale.this.setVisible(false);
 				Panier.main(null);
 			}
 		});
-		panel_4.setLayout(new BorderLayout(0, 0));
 
 		JTextArea txtPanier = new JTextArea();
 		panel_4.add(txtPanier);
 		txtPanier.setText(
 				"Voyez ici tous les produits que vous avez commandé précédemment. Si vous n'avez ajouté aucun produit, vous ne pourrez pas consulter votre panier.");
 		txtPanier.setLineWrap(true);
-		panel_4.add(btnConseil);
-
-		JPanel panel_3 = new JPanel();
-		panel_4.add(panel_3, BorderLayout.NORTH);
-		panel_3.setLayout(new GridLayout(0, 2, 0, 0));
-
-		JSpinner spinner = new JSpinner();
-		panel_3.add(spinner);
-
-		JSpinner spinner_1 = new JSpinner();
-		panel_3.add(spinner_1);
-
-		JButton btnNewButton = new JButton("Plus d'information sur cette tomate");
-		panel_3.add(btnNewButton);
-
-		JButton btnNewButton_1 = new JButton("Ajouter au panier");
-		panel_3.add(btnNewButton_1);
-
-		JPanel panel_5 = new JPanel();
-		panel_4.add(panel_5, BorderLayout.SOUTH);
-		panel_5.setLayout(new BorderLayout(0, 0));
-
-		JLabel lblNewLabel = new JLabel("Mon panier");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_5.add(lblNewLabel, BorderLayout.NORTH);
-
-		JTextArea textArea = new JTextArea();
-		panel_5.add(textArea, BorderLayout.CENTER);
-
-		JButton btnPanier1 = new JButton("Accéder au panier");
-		btnPanier1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				PagePrincipale.this.setVisible(false);
-				Panier.main(null);
-			}
-		});
-		panel_5.add(btnPanier1, BorderLayout.SOUTH);
-		JButton btnPanier2 = new JButton("Conseil de culture");
+		panel_4.add(btnPanier);
 
 		for (int i = 0; i < this.tomates.getLesTomates().size(); i++) {
 			this.modeleTable.addRow(new Object[] { this.tomates.getLesTomates().get(i).getDésignation(),
@@ -188,44 +149,6 @@ public class PagePrincipale extends JFrame {
 					this.tomates.getLesTomates().get(i).getPrixTTC(),
 					this.tomates.getLesTomates().get(i).getNombreDeGraines() });
 		}
-	}
-
-	public List<Tomate> tomatesDeType(TypeTomate typeTomate) {
-		return this.tomatesDeTypeAvecListe(typeTomate, this.lesTomates);
-	}
-
-	private List<Tomate> tomatesDeTypeAvecListe(TypeTomate typeTomate, List<Tomate> lesTomates) {
-		List<Tomate> tomate_temp = new ArrayList<>();
-		for (Tomate tom : lesTomates) {
-			if (tom.getTypeGraine() == typeTomate) {
-				tomate_temp.add(tom);
-			}
-		}
-		return tomate_temp;
-	}
-
-	public List<Tomate> tomatesDeCouleur(Couleur couleur) {
-		return this.tomatesDeCouleurAvecListe(couleur, this.lesTomates);
-	}
-
-	private List<Tomate> tomatesDeCouleurAvecListe(Couleur couleur, List<Tomate> lesTomates) {
-		List<Tomate> tomate_temp = new ArrayList<>();
-		for (Tomate tom : lesTomates) {
-			if (tom.getCouleur() == couleur) {
-				tomate_temp.add(tom);
-			}
-		}
-		return tomate_temp;
-	}
-
-	public List<Tomate> tomatesDetypeDeCouleur(TypeTomate typeTomate, Couleur couleur) {
-		List<Tomate> tomate_temp = new ArrayList<>();
-		for (Tomate tom : this.lesTomates) {
-			if ((tom.getCouleur() == couleur) && (tom.getTypeGraine() == typeTomate)) {
-				tomate_temp.add(tom);
-			}
-		}
-		return tomate_temp;
 	}
 
 }
