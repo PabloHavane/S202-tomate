@@ -23,6 +23,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 
+import modèle.MonPanier;
+
 public class PagePlusDinformation extends JFrame {
 
 	private JPanel contentPane;
@@ -117,6 +119,8 @@ public class PagePlusDinformation extends JFrame {
 		btnAjouterAuPanier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				MonPanier.MON_PANIER.addMesTomate(PagePrincipale.selectedTomato, 1);
+				System.out.println(MonPanier.MON_PANIER.getMesTomates());
 				PagePrincipale.main(null);
 			}
 		});
