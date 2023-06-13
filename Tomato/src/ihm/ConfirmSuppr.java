@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modèle.MonPanier;
+
 import java.awt.BorderLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -55,6 +58,7 @@ public class ConfirmSuppr extends JFrame {
 		btnOui.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				MonPanier.monPanier.clearMesTomates();
 				PagePrincipale.main(null);
 			}
 		});

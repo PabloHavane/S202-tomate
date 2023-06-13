@@ -2,9 +2,15 @@ package ihm;
 
 import java.awt.EventQueue;
 
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modèle.MonPanier;
+
 import java.awt.BorderLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
@@ -13,11 +19,13 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTextArea;
+
+import java.time.LocalDate;
 
 public class Facture extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -65,15 +73,30 @@ public class Facture extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		contentPane.add(scrollPane, BorderLayout.CENTER);
 		
-		textField = new JTextField();
-		scrollPane.setViewportView(textField);
-		textField.setColumns(10);
+		JTextArea textArea = new JTextArea("TomatoKetchup \n");
+		textArea.append(LocalDate.now().toString() + "\n");
+		textArea.append(MonPanier.monPanier.toStringCoordonnées());
+		textArea.append("Montant total : " + MonPanier.monPanier.prixMonPanier());
+		scrollPane.setViewportView(textArea);
 		
 		JPanel panel_1 = new JPanel();
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		panel_1.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnImprimer = new JButton("Imprimer");
+		btnImprimer.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        PrinterJob job = PrinterJob.getPrinterJob();
+		        boolean ok = job.printDialog();
+		        if (ok) {
+		            try {
+		                job.print();
+		            } catch (PrinterException ex) {
+		                ex.printStackTrace();
+		            }
+		        }
+		    }
+		});
 		panel_1.add(btnImprimer, BorderLayout.CENTER);
 		
 		JButton btnQuitter = new JButton("Quitter");

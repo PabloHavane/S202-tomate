@@ -36,45 +36,40 @@ public class MonPanier {
 	
 	public void setAllCoordonne(String nom,String prenom, String adresse1, String codePostal,
 			String ville, String telephone, String mail) {
-		this.nom = nom;
-		this.prenom = prenom;
-		this.adresse1 = adresse1;
-		this.codePostal = codePostal;
-		this.ville = ville;
-		this.telephone = telephone;
-		this.mail = mail;
+		if (nom.isEmpty())
+			this.nom="Non renseigné";
+		else
+			this.nom = nom;
+		if (prenom.isEmpty())
+			this.prenom="Non renseigné";
+		else
+			this.prenom = prenom;
+		if (adresse1.isEmpty())
+			this.adresse1="Non renseigné";
+		else
+			this.adresse1 = adresse1;
+		if (codePostal.isEmpty())
+			this.codePostal="Non renseigné";
+		else
+			this.codePostal = codePostal;
+		if (ville.isEmpty())
+			this.ville="Non renseigné";
+		else
+			this.ville = ville;
+		if (telephone.isEmpty())
+			this.telephone="Non renseigné";
+		else
+			this.telephone = telephone;
+		if (mail.isEmpty())
+			this.mail="Non renseigné";
+		else
+			this.mail = mail;
 	}
 	
-	public String getNom() {
-		return this.nom;
-	}
-	
-	public String getPrenom() {
-		return this.prenom;
-	}
-	
-	public String getAdresse1() {
-		return this.adresse1;
-	}
-	
-	public String getAdresse2() {
-		return this.adresse2;
-	}
-	
-	public String getCP() {
-		return this.codePostal;
-	}
-	
-	public String getVille() {
-		return this.ville;
-	}
-	
-	public String getTelephone() {
-		return this.telephone;
-	}
-	
-	public String getMail() {
-		return this.mail;
+	public String toStringCoordonnées() {
+		return "Nom : " + this.nom + "\n" + "Prénom : " + this.prenom + "\n" + "Adresse : " + this.adresse1 + "\n" +
+				"Code postal : " + this.codePostal + "\n" + "Ville : " +this.ville + "\n" +
+				"Téléphone : "+this.telephone + "\n" + "Mail : "+this.mail+"\n";
 	}
 	
 	/**

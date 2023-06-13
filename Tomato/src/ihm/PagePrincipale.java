@@ -9,9 +9,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 
 import modèle.Couleur;
 import modèle.GenerationArticles;
+import modèle.MonPanier;
 import modèle.Tomate;
 import modèle.Tomates;
 import modèle.TypeTomate;
@@ -38,6 +41,8 @@ public class PagePrincipale extends JFrame {
 	private Tomates tomates = GenerationArticles.générationDeBaseDesTomates();
 	public String selectedTomatoName;
 	public static Tomate selectedTomato;
+	private String stringColor = "Aucun filtre";
+	private String stringType = "Aucun filtre";
 
 	/**
 	 * Launch the application.
@@ -152,11 +157,43 @@ public class PagePrincipale extends JFrame {
 		panel_4.add(panel_3, BorderLayout.NORTH);
 		panel_3.setLayout(new GridLayout(0, 2, 0, 0));
 
-		JSpinner spinner = new JSpinner();
-		panel_3.add(spinner);
-
-		JSpinner spinner_1 = new JSpinner();
-		panel_3.add(spinner_1);
+		JComboBox comboBoxProduitSimilaire = new JComboBox();
+		comboBoxProduitSimilaire.addItem("Aucun filtre");
+		comboBoxProduitSimilaire.addItem(Couleur.BLEU);
+		comboBoxProduitSimilaire.addItem(Couleur.VERT);
+		comboBoxProduitSimilaire.addItem(Couleur.ROUGE);
+		comboBoxProduitSimilaire.addItem(Couleur.ORANGE);
+		comboBoxProduitSimilaire.addItem(Couleur.JAUNE);
+		comboBoxProduitSimilaire.addItem(Couleur.NOIR);
+		comboBoxProduitSimilaire.addItem(Couleur.MULTICOLORE);
+		panel_3.add(comboBoxProduitSimilaire);
+		
+		JComboBox comboBoxProduitSimilaire_1 = new JComboBox();
+		comboBoxProduitSimilaire_1.addItem("Aucun filtre");
+		comboBoxProduitSimilaire_1.addItem(TypeTomate.TOMATES_CERISES);
+		comboBoxProduitSimilaire_1.addItem(TypeTomate.TOMATES);
+		panel_3.add(comboBoxProduitSimilaire_1);
+		
+		comboBoxProduitSimilaire.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	stringColor = comboBoxProduitSimilaire.getSelectedItem().toString();
+	            if (stringColor.equals("Aucun filtre")) {
+	                stringColor = null;
+	            }
+	            updateTable();
+		    }
+		});
+		comboBoxProduitSimilaire_1.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	stringType = comboBoxProduitSimilaire_1.getSelectedItem().toString();
+	            if (stringType.equals("Aucun filtre")) {
+	                stringType = null;
+	            }
+	            updateTable();
+		    }
+		});
 
 		JPanel panel_5 = new JPanel();
 		panel_4.add(panel_5, BorderLayout.SOUTH);
@@ -177,7 +214,10 @@ public class PagePrincipale extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PagePrincipale.this.setVisible(false);
-				Panier.main(null);
+				if (MonPanier.monPanier.sizeMesTomates()!=0)
+					Panier.main(null);
+				else
+					Ooops.main(null);
 			}
 		});
 		panel_5.add(btnPanier1, BorderLayout.SOUTH);
@@ -190,5 +230,41 @@ public class PagePrincipale extends JFrame {
 					this.tomates.getLesTomates().get(i).getPrixTTC(),
 					this.tomates.getLesTomates().get(i).getNombreDeGraines() });
 		}
+	}
+	
+	public void updateTable() {
+	    List<Tomate> tomates = GenerationArticles.générationDeBaseDesTomates().getLesTomates();
+
+	 // Filtering by color
+	    List<Tomate> filteredByColor = new LinkedList<>();
+	    if (stringColor == null || stringColor.equals("Aucun filtre")) {
+	        filteredByColor.addAll(tomates);
+	    } else {
+	        for (Tomate tomate : tomates) {
+	            if (tomate.getCouleur().toString().equals(stringColor)) {
+	                filteredByColor.add(tomate);
+	            }
+	        }
+	    }
+
+	    // Filtering by type
+	    List<Tomate> filtreTomates = new LinkedList<>();
+	    if (stringType == null || stringType.equals("Aucun filtre")) {
+	        filtreTomates.addAll(filteredByColor);
+	    } else {
+	        for (Tomate tomate : filteredByColor) {
+	            if (tomate.getTypeGraine().toString().equals(stringType)) {
+	                filtreTomates.add(tomate);
+	            }
+	        }
+	    }
+
+
+	    modeleTable.setRowCount(0);
+
+	    for (Tomate tomate : filtreTomates) {
+	        modeleTable.addRow(new Object[] { tomate.getDésignation(), tomate.getCouleur(),
+	            tomate.getTypeGraine(), tomate.getPrixTTC(), tomate.getNombreDeGraines() });
+	    }
 	}
 }

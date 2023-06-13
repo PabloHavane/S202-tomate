@@ -180,13 +180,15 @@ public class PageVosCordonnées extends JFrame {
 		btnOk.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PageVosCordonnées.this.monPanier.setAllCoordonne(PageVosCordonnées.this.textFieldNom.getSelectedText(),
-						PageVosCordonnées.this.textFieldPrenom.getSelectedText(),
-						PageVosCordonnées.this.textFieldAdresse1.getSelectedText(),
-						PageVosCordonnées.this.textFieldCP.getSelectedText(),
-						PageVosCordonnées.this.textFieldVille.getSelectedText(),
-						PageVosCordonnées.this.textFieldTel.getSelectedText(),
-						PageVosCordonnées.this.textFieldMail.getSelectedText());
+				System.out.println(PageVosCordonnées.this.textFieldPrenom.getText());
+				MonPanier.monPanier.setAllCoordonne(PageVosCordonnées.this.textFieldNom.getText(),
+						PageVosCordonnées.this.textFieldPrenom.getText(),
+						PageVosCordonnées.this.textFieldAdresse1.getText(),
+						PageVosCordonnées.this.textFieldCP.getText(),
+						PageVosCordonnées.this.textFieldVille.getText(),
+						PageVosCordonnées.this.textFieldTel.getText(),
+						PageVosCordonnées.this.textFieldMail.getText());
+				System.out.println(MonPanier.monPanier.toStringCoordonnées());
 				PageVosCordonnées.this.setVisible(false);
 				;
 				Facture.main(null);

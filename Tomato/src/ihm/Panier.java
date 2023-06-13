@@ -19,6 +19,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
 
 public class Panier extends JFrame {
 
@@ -79,8 +80,7 @@ public class Panier extends JFrame {
 		ButtonSuppr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				MonPanier.monPanier.clearMesTomates();
-				PagePrincipale.main(null);
+				ConfirmSuppr.main(null);
 			}
 		});
 		panel_1.add(ButtonSuppr, BorderLayout.CENTER);
@@ -95,10 +95,13 @@ public class Panier extends JFrame {
 		panel_1.add(ButtonAccueil, BorderLayout.EAST);
 		
 		this.modeleTable = new DefaultTableModel(
-				new Object[] { "Désignation", "Couleur", "Type de graine", "Prix (€)", "Nombre de graines" }, 0);
+				new Object[] { "Désignation", "Couleur", "Type de graine", "Prix (€)"}, 0);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		panel.add(scrollPane, BorderLayout.CENTER);
 		table = new JTable(modeleTable);
+		scrollPane.setViewportView(table);
 		table.setModel(this.modeleTable);
-		panel.add(table, BorderLayout.CENTER);
 		this.table.addMouseListener(new MouseAdapter() {
 
 			@Override
@@ -114,8 +117,7 @@ public class Panier extends JFrame {
 			this.modeleTable.addRow(new Object[] { MonPanier.monPanier.getMesTomates().get(i).getDésignation(),
 					MonPanier.monPanier.getMesTomates().get(i).getCouleur(),
 					MonPanier.monPanier.getMesTomates().get(i).getTypeGraine(),
-					MonPanier.monPanier.getMesTomates().get(i).getPrixTTC(),
-					MonPanier.monPanier.getMesTomates().get(i).getNombreDeGraines() });
+					MonPanier.monPanier.getMesTomates().get(i).getPrixTTC()});
 		}
 	}
 }

@@ -145,13 +145,17 @@ public class PagePlusDinformation extends JFrame {
 		JButton btnAjouterAuPanier = new JButton("Ajouter ce produit au panier");
 		btnAjouterAuPanier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
-				if (textFieldPrix.getText() != "0.0€" || textFieldPrix.getText() != "Prix") {
+				
+				if (textFieldPrix.getText() == "0.0€" || textFieldQuantité.getText().isEmpty()) {
+					PagePrincipale.main(null);
+					setVisible(false);
+				}else {
 					for (int i=0; i < Float.valueOf(textFieldQuantité.getText()); i++) {
 						MonPanier.monPanier.addMesTomate(PagePrincipale.selectedTomato, 1);
 					}
+					PagePrincipale.main(null);
+					setVisible(false);
 				}
-				PagePrincipale.main(null);
 			}
 		});
 		contentPane.add(btnAjouterAuPanier, BorderLayout.SOUTH);
