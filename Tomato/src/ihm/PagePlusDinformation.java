@@ -119,8 +119,8 @@ public class PagePlusDinformation extends JFrame {
 		btnAjouterAuPanier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				MonPanier.MON_PANIER.addMesTomate(PagePrincipale.selectedTomato, 1);
-				System.out.println(MonPanier.MON_PANIER.getMesTomates());
+				MonPanier.monPanier.addMesTomate(PagePrincipale.selectedTomato, 1);
+				System.out.println(MonPanier.monPanier.getMesTomates());
 				PagePrincipale.main(null);
 			}
 		});
