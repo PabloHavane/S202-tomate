@@ -102,6 +102,7 @@ public class PagePlusDinformation extends JFrame {
 					PagePrincipale.selectedTomato.getTypeGraine() + "\n" +
 					PagePrincipale.selectedTomato.getDescription());
 		}
+		textAreaDescription.setLineWrap(true);
 		scrollPane.setViewportView(textAreaDescription);
 		
 		

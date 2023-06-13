@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.ListSelectionModel;
+import javax.swing.JTextArea;
 
 public class PagePrincipale extends JFrame {
 
@@ -128,10 +129,6 @@ public class PagePrincipale extends JFrame {
 		lblPanier.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_4.add(lblPanier);
 
-		JLabel lblVoyezIciTous = new JLabel("Voyez ici tous les produits que vous avez commandé précédemment.\nSi vous n'avez ajouté aucun produit, vous ne pourrez pas consulter votre panier.");
-		lblVoyezIciTous.setHorizontalAlignment(SwingConstants.CENTER);
-		panel_4.add(lblVoyezIciTous);
-
 		JButton btnPanier = new JButton("Accéder au panier");
 		btnPanier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -139,6 +136,11 @@ public class PagePrincipale extends JFrame {
 				Panier.main(null);
 			}
 		});
+		
+		JTextArea txtPanier = new JTextArea();
+		panel_4.add(txtPanier);
+		txtPanier.setText("Voyez ici tous les produits que vous avez commandé précédemment. Si vous n'avez ajouté aucun produit, vous ne pourrez pas consulter votre panier.");
+		txtPanier.setLineWrap(true);
 		panel_4.add(btnPanier);
 		
 		

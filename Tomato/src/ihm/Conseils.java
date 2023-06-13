@@ -70,6 +70,7 @@ public class Conseils extends JFrame {
 		JTextArea textAreaConseilTitre = new JTextArea();
 		textAreaConseilTitre.setEditable(false);
 		textAreaConseilTitre.setText(Tomates.CONSEILS_DE_CULTURE_TITRE);
+		textAreaConseilTitre.setLineWrap(true);
 		panel_1.add(textAreaConseilTitre, BorderLayout.SOUTH);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -78,6 +79,7 @@ public class Conseils extends JFrame {
 		JTextArea textAreaConseils = new JTextArea();
 		textAreaConseils.setEditable(false);
 		textAreaConseils.setText(Tomates.CONSEILS_DE_CULTURE);
+		textAreaConseils.setLineWrap(true);
 		scrollPane.setViewportView(textAreaConseils);
 		
 		JButton btnAccueil = new JButton("Retour à l'accueil");
