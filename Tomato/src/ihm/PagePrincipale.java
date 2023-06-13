@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -73,6 +74,7 @@ public class PagePrincipale extends JFrame {
 
 		JLabel lblHeadLeftImg = new JLabel("img");
 		lblHeadLeftImg.setHorizontalAlignment(SwingConstants.LEFT);
+		lblHeadLeftImg.setIcon(new ImageIcon("images/ananas-2-scaled.jpg"));
 		panel.add(lblHeadLeftImg);
 
 		JLabel lblTomatoketchup = new JLabel("TomatoKetchup");
@@ -192,43 +194,4 @@ public class PagePrincipale extends JFrame {
 					this.tomates.getLesTomates().get(i).getNombreDeGraines() });
 		}
 	}
-
-	public List<Tomate> tomatesDeType(TypeTomate typeTomate) {
-		return this.tomatesDeTypeAvecListe(typeTomate, this.lesTomates);
-	}
-
-	private List<Tomate> tomatesDeTypeAvecListe(TypeTomate typeTomate, List<Tomate> lesTomates) {
-		List<Tomate> tomate_temp = new ArrayList<>();
-		for (Tomate tom : lesTomates) {
-			if (tom.getTypeGraine() == typeTomate) {
-				tomate_temp.add(tom);
-			}
-		}
-		return tomate_temp;
-	}
-
-	public List<Tomate> tomatesDeCouleur(Couleur couleur) {
-		return this.tomatesDeCouleurAvecListe(couleur, this.lesTomates);
-	}
-
-	private List<Tomate> tomatesDeCouleurAvecListe(Couleur couleur, List<Tomate> lesTomates) {
-		List<Tomate> tomate_temp = new ArrayList<>();
-		for (Tomate tom : lesTomates) {
-			if (tom.getCouleur() == couleur) {
-				tomate_temp.add(tom);
-			}
-		}
-		return tomate_temp;
-	}
-
-	public List<Tomate> tomatesDetypeDeCouleur(TypeTomate typeTomate, Couleur couleur) {
-		List<Tomate> tomate_temp = new ArrayList<>();
-		for (Tomate tom : this.lesTomates) {
-			if ((tom.getCouleur() == couleur) && (tom.getTypeGraine() == typeTomate)) {
-				tomate_temp.add(tom);
-			}
-		}
-		return tomate_temp;
-	}
-
 }
