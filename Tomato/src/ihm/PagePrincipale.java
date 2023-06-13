@@ -136,7 +136,7 @@ public class PagePrincipale extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PagePrincipale.this.setVisible(false);
-				Panier.main(null);
+				Conseils.main(null);
 			}
 		});
 		panel_4.setLayout(new BorderLayout(0, 0));
@@ -157,12 +157,6 @@ public class PagePrincipale extends JFrame {
 
 		JSpinner spinner_1 = new JSpinner();
 		panel_3.add(spinner_1);
-
-		JButton btnNewButton = new JButton("Plus d'information sur cette tomate");
-		panel_3.add(btnNewButton);
-
-		JButton btnNewButton_1 = new JButton("Ajouter au panier");
-		panel_3.add(btnNewButton_1);
 
 		JPanel panel_5 = new JPanel();
 		panel_4.add(panel_5, BorderLayout.SOUTH);

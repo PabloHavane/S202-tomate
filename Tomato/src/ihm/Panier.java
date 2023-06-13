@@ -5,6 +5,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import modèle.MonPanier;
+
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
@@ -12,12 +16,15 @@ import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 
 public class Panier extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private DefaultTableModel modeleTable;
 
 	/**
 	 * Launch the application.
@@ -86,8 +93,28 @@ public class Panier extends JFrame {
 		});
 		panel_1.add(ButtonAccueil, BorderLayout.EAST);
 		
-		table = new JTable();
+		this.modeleTable = new DefaultTableModel(
+				new Object[] { "Désignation", "Couleur", "Type de graine", "Prix (€)", "Nombre de graines" }, 0);
+		table = new JTable(modeleTable);
+		table.setModel(this.modeleTable);
 		panel.add(table, BorderLayout.CENTER);
-	}
+		this.table.addMouseListener(new MouseAdapter() {
 
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int selectedRow = table.getSelectedRow();
+				if (selectedRow != -1) {
+					
+				}
+			}
+		});
+		
+		for (int i = 0; i < MonPanier.monPanier.sizeMesTomates(); i++) {
+			this.modeleTable.addRow(new Object[] { MonPanier.monPanier.getMesTomates().get(i).getDésignation(),
+					MonPanier.monPanier.getMesTomates().get(i).getCouleur(),
+					MonPanier.monPanier.getMesTomates().get(i).getTypeGraine(),
+					MonPanier.monPanier.getMesTomates().get(i).getPrixTTC(),
+					MonPanier.monPanier.getMesTomates().get(i).getNombreDeGraines() });
+		}
+	}
 }
