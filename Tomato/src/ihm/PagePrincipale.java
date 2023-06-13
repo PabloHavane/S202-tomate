@@ -167,8 +167,11 @@ public class PagePrincipale extends JFrame {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_5.add(lblNewLabel, BorderLayout.NORTH);
 
-		JTextArea textArea = new JTextArea();
-		panel_5.add(textArea, BorderLayout.CENTER);
+		JTextArea txtrVoyezIciTous = new JTextArea();
+		txtrVoyezIciTous.setText(
+				"Voyez ici tous les produits que vous avez commandé précédemment. Si vous n'avez ajouté aucun produit, vous ne pourrez pas consulter votre panier.");
+		txtrVoyezIciTous.setLineWrap(true);
+		panel_5.add(txtrVoyezIciTous, BorderLayout.CENTER);
 
 		JButton btnPanier1 = new JButton("Accéder au panier");
 		btnPanier1.addActionListener(new ActionListener() {
