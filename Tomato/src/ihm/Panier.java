@@ -79,7 +79,8 @@ public class Panier extends JFrame {
 		ButtonSuppr.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				Ooops.main(null);
+				MonPanier.monPanier.clearMesTomates();
+				PagePrincipale.main(null);
 			}
 		});
 		panel_1.add(ButtonSuppr, BorderLayout.CENTER);

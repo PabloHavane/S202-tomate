@@ -23,8 +23,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
+import javax.swing.SpinnerNumberModel;
 
 import modèle.MonPanier;
+import javax.swing.JSpinner;
 
 public class PagePlusDinformation extends JFrame {
 
@@ -82,12 +84,15 @@ public class PagePlusDinformation extends JFrame {
 		panel_2.add(comboBoxProduitSimilaire);
 		
 		textFieldPrix = new JTextField();
+		textFieldPrix.setEditable(false);
 		textFieldPrix.setText("Prix");
 		panel_2.add(textFieldPrix);
 		textFieldPrix.setColumns(10);
+
+		SpinnerNumberModel spinnerModel = new SpinnerNumberModel(1,0,PagePrincipale.selectedTomato.getNombreDeGraines(),1);
+		JSpinner spinnerQuantité = new JSpinner(spinnerModel);
 		
-		JComboBox comboBoxQuantité = new JComboBox();
-		panel_2.add(comboBoxQuantité);
+		panel_2.add(spinnerQuantité);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		panel_1.add(scrollPane, BorderLayout.CENTER);
@@ -121,8 +126,9 @@ public class PagePlusDinformation extends JFrame {
 		btnAjouterAuPanier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				MonPanier.monPanier.addMesTomate(PagePrincipale.selectedTomato, 1);
-				System.out.println(MonPanier.monPanier.getMesTomates());
+				for (int i=0; i < (int) spinnerQuantité.getValue(); i++) {
+					MonPanier.monPanier.addMesTomate(PagePrincipale.selectedTomato, 1);
+				}
 				PagePrincipale.main(null);
 			}
 		});
