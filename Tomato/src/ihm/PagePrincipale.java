@@ -204,6 +204,7 @@ public class PagePrincipale extends JFrame {
 		panel_5.add(lblNewLabel, BorderLayout.NORTH);
 
 		JTextArea txtrVoyezIciTous = new JTextArea();
+		txtrVoyezIciTous.setEditable(false);
 		txtrVoyezIciTous.setText(
 				"Voyez ici tous les produits que vous avez commandé précédemment. Si vous n'avez ajouté aucun produit, vous ne pourrez pas consulter votre panier.");
 		txtrVoyezIciTous.setLineWrap(true);

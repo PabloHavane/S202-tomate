@@ -117,6 +117,7 @@ public class PagePlusDinformation extends JFrame {
 		panel_1.add(scrollPane, BorderLayout.CENTER);
 		
 		JTextArea textAreaDescription = new JTextArea();
+		textAreaDescription.setEditable(false);
 		if (PagePrincipale.selectedTomato.getSousTitre() == null) {
 		textAreaDescription.setText(PagePrincipale.selectedTomato.getDésignation() + "\n" +
 				PagePrincipale.selectedTomato.getCouleur() + "\n" +
