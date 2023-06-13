@@ -72,16 +72,19 @@ public class PagePrincipale extends JFrame {
 		this.contentPane.add(panel, BorderLayout.NORTH);
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblHeadLeftImg = new JLabel("img");
+		JLabel lblHeadLeftImg = new JLabel();
 		lblHeadLeftImg.setHorizontalAlignment(SwingConstants.LEFT);
-		lblHeadLeftImg.setIcon(new ImageIcon("images/ananas-2-scaled.jpg"));
+		lblHeadLeftImg.setIcon(new ImageIcon("images/tomoatoketchup-rb.png"));
+		lblHeadLeftImg.setPreferredSize(new java.awt.Dimension(200, 100));
 		panel.add(lblHeadLeftImg);
 
 		JLabel lblTomatoketchup = new JLabel("TomatoKetchup");
 		panel.add(lblTomatoketchup);
 
-		JLabel lblHeadRightImg = new JLabel("Img");
+		JLabel lblHeadRightImg = new JLabel();
 		lblHeadRightImg.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblHeadRightImg.setIcon(new ImageIcon("images/vector-1456768_1280.png"));
+		lblHeadRightImg.setPreferredSize(new java.awt.Dimension(200, 100));
 		panel.add(lblHeadRightImg);
 
 		JPanel panel_1 = new JPanel();

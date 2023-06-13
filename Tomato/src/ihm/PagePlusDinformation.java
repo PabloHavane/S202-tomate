@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import java.awt.FlowLayout;
@@ -108,8 +109,9 @@ public class PagePlusDinformation extends JFrame {
 		scrollPane.setViewportView(textAreaDescription);
 		
 		
-		JLabel lblImg = new JLabel("Img");
+		JLabel lblImg = new JLabel();
 		contentPane.add(lblImg, BorderLayout.EAST);
+		lblImg.setIcon(new ImageIcon("images/"+PagePrincipale.selectedTomato.getNomImage()+".jpg"));
 		
 		JLabel lblTitre = new JLabel("Plus d'informations sur votre choix");
 		lblTitre.setHorizontalAlignment(SwingConstants.CENTER);
