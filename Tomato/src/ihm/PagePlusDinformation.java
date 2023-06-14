@@ -80,7 +80,7 @@ public class PagePlusDinformation extends JFrame {
 		JPanel panel_2 = new JPanel();
 		panel_1.add(panel_2, BorderLayout.SOUTH);
 		
-		textFieldPrix = new JTextField("Prix");
+		textFieldPrix = new JTextField(Float.toString(PagePrincipale.selectedTomato.getPrixTTC()));
 		textFieldPrix.setEditable(false);
 		panel_2.add(textFieldPrix);
 		textFieldPrix.setColumns(10);
@@ -89,7 +89,7 @@ public class PagePlusDinformation extends JFrame {
 		JLabel lblQuantit = new JLabel("Quantité :");
 		panel_2.add(lblQuantit);
 		
-		textFieldQuantité = new JTextField();
+		textFieldQuantité = new JTextField("1");
 		textFieldQuantité.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				float prix=PagePrincipale.selectedTomato.getPrixTTC();

@@ -5,6 +5,7 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 import java.time.LocalDate;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -61,8 +62,8 @@ public class Facture extends JFrame {
         lblFacture.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(lblFacture, BorderLayout.CENTER);
 
-        JLabel lblImg = new JLabel("img");
-        lblImg.setHorizontalAlignment(SwingConstants.RIGHT);
+        JLabel lblImg = new JLabel();
+        lblImg.setIcon(new ImageIcon("images/facture.png"));
         panel.add(lblImg, BorderLayout.WEST);
 
         JLabel lblRemerciement = new JLabel("Merci de votre visite !");

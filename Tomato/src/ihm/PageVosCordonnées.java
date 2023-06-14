@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -64,7 +65,8 @@ public class PageVosCordonnées extends JFrame {
 		this.contentPane.add(panel_3, BorderLayout.NORTH);
 		panel_3.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
-		JLabel lblImg = new JLabel("Img");
+		JLabel lblImg = new JLabel();
+		lblImg.setIcon(new ImageIcon("images/utilisateur.png"));
 		panel_3.add(lblImg);
 
 		JLabel lblTitre = new JLabel("Vos coordonnées");

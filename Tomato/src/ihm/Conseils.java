@@ -19,6 +19,7 @@ import modèle.Tomates;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class Conseils extends JFrame {
 
@@ -64,7 +65,9 @@ public class Conseils extends JFrame {
 		lblTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		panel_1.add(lblTitle, BorderLayout.CENTER);
 		
-		JLabel logoImg = new JLabel("Img");
+		JLabel logoImg = new JLabel("");
+		logoImg.setHorizontalAlignment(SwingConstants.RIGHT);
+		logoImg.setIcon(new ImageIcon("images/plante.png"));
 		panel_1.add(logoImg, BorderLayout.WEST);
 		
 		JTextArea textAreaConseilTitre = new JTextArea();
