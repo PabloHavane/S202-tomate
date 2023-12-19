@@ -119,5 +119,7 @@ public class Panier extends JFrame {
 					MonPanier.monPanier.getMesTomates().get(i).getTypeGraine(),
 					MonPanier.monPanier.getMesTomates().get(i).getPrixTTC()});
 		}
+		this.modeleTable.addRow(new Object[] {"","","Prix Total",MonPanier.monPanier.prixMonPanier()});
+
 	}
 }
